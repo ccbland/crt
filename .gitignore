@@ -1,1 +1,17 @@
+# macOS
 .DS_Store
+
+# Java compiled files
+*.class
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Logs
+*.log
+*.out
+
+# Temporary files
+/tmp/

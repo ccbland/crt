@@ -1,70 +1,145 @@
 # CRISPR Recognition Tool
 
-**Current version:** 1.1 (March 14, 2007)
+**Original release:** 2007–2008  
+**Operating system:** Platform independent  
+**Requirements:** Java 8 or later, or a compatible Java Runtime Environment. CRT currently supports FASTA-formatted input files.
 
-- **Operating System:** Platform independent
-- **License:** Public domain software
-- **Requirements:** Java Runtime Environment (JRE), which is probably already installed. Currently, CRT only supports FASTA file format.
+The CRISPR Recognition Tool (CRT) is software for detecting clustered regularly interspaced palindromic repeats in DNA sequences. This repository includes both the graphical user interface (GUI) version and the command-line interface (CLI) version.
 
 ---
 
 ## Graphical User Interface (GUI)
 
-### Instructions
+### Run the GUI
 
-1. Download `CRT1.1_exe.zip` and unzip it to a folder.
-2. The extracted file should be named `CRT1.1_exe.jar`.
-3. Double-click the extracted JAR file.
+ Double-click `CRT-GUI.jar`, located in the `dist` directory.
 
-Alternatively, run from the command line:
+Or it can be run from the command line:
 
 ```bash
-java -jar CRT1.1_exe.jar
+java -jar dist/CRT-GUI.jar
 ```
 
-If these instructions do not work, see the troubleshooting page.
+### Build and Run the GUI from Source
 
-### Source Code
+Compile the source files:
 
-- `CRT1.1_scr.zip`
+```bash
+javac src/*.java
+```
+
+Run the GUI main class:
+
+```bash
+java -cp src CRTGUI
+```
 
 ---
 
 ## Command Line Interface (CLI)
 
-**Updated:** June 12, 2008
+The CLI version provides a more Unix-like command-line interface.
 
-Features:
-
-- More Unix-like command-line interface
-- Allows reading files from any directory
-
-### Instructions
-
-1. Download `CRT1.2-CLI.jar.zip` and unzip it.
-2. The extracted file should be named `CRT1.2-CLI.jar`.
-
-Run:
+### Run the CLI
 
 ```bash
-java -cp CRT1.2-CLI.jar crt [options] inputFile [outputFile]
+java -cp dist/CRT-CLI.jar CRTCLI [options] inputFile [outputFile]
 ```
 
-For additional information, see the detailed command-line documentation.
+Where:
 
-If these instructions do not work, see the troubleshooting page.
+- `CRTCLI` is the main class.
+- `[options]` is optional. If no options are given, default values are used.
+- `inputFile` is required and must be in FASTA format.
+- `outputFile` is optional. If no output file is given, results are written to `a.out`.
 
-### Source Code
+### Examples
 
-- `CRT1.2-CLI_src.zip`
+```bash
+java -cp dist/CRT-CLI.jar CRTCLI data/ecoli.fna
+```
+
+```bash
+java -cp dist/CRT-CLI.jar CRTCLI data/ecoli.fna ecoli.out
+```
+
+```bash
+java -cp dist/CRT-CLI.jar CRTCLI -minNR 3 -minRL 21 data/ecoli.fna
+```
+
+### CLI Options
+
+| Option | Description | Default |
+|---|---|---|
+| `-minNR` | Minimum number of repeats a CRISPR must contain | `3` |
+| `-minRL` | Minimum length of a CRISPR repeated region | `19` |
+| `-maxRL` | Maximum length of a CRISPR repeated region | `38` |
+| `-minSL` | Minimum length of a CRISPR spacer/non-repeated region | `19` |
+| `-maxSL` | Maximum length of a CRISPR spacer/non-repeated region | `48` |
+| `-screen` | Print results to screen instead of a file; range `0–1` | `0` |
+| `-searchWL` | Length of search window used to discover CRISPRs; range `6–9` | 8 |
+
+### Build and Run the CLI from Source
+
+Compile the source files:
+
+```bash
+javac src/*.java
+```
+
+Run the CLI main class:
+
+```bash
+java -cp src CRTCLI [options] inputFile [outputFile]
+```
+
+Example:
+
+```bash
+java -cp src CRTCLI data/ecoli.fna ecoli.out
+```
+
+---
+
+## Optional: Create a Unix Alias for the CLI
+
+To avoid typing the full command each time, you can create an alias.
+
+For Bash:
+
+```bash
+alias crt="java -cp dist/CRT-CLI.jar CRTCLI"
+```
+
+For C shell or tcsh:
+
+```csh
+alias crt "java -cp dist/CRT-CLI.jar CRTCLI"
+```
+
+Then CRT can be run more simply:
+
+```bash
+crt data/ecoli.fna
+```
+
+```bash
+crt data/ecoli.fna ecoli.out
+```
+
+```bash
+crt -minNR 3 -minRL 21 data/ecoli.fna
+```
+
+To make the alias permanent, add it to your shell configuration file, such as `.bashrc`, `.zshrc`, or `.cshrc`.
 
 ---
 
 ## Contact
 
-Report bugs, questions, or suggestions to:
+Questions, bug reports, and suggestions are welcome.
 
-`bland.charles<insert at symbol>gmail.com`
+Email: `bland.charles@gmail.com`
 
 The author is also interested in hearing about projects that use CRT.
 
@@ -72,8 +147,10 @@ The author is also interested in hearing about projects that use CRT.
 
 ## Citation
 
+If you use CRT in your research, please cite:
+
 Bland C, Ramsey TL, Sabree F, Lowe M, Brown K, Kyrpides NC, Hugenholtz P.
 
 **CRISPR Recognition Tool (CRT): a tool for automatic detection of clustered regularly interspaced palindromic repeats.**
 
-*BMC Bioinformatics.* 2007 Jun 18;8(1):209.
+*BMC Bioinformatics.* 2007;8:209.
