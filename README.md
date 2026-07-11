@@ -1,18 +1,16 @@
 # CRISPR Recognition Tool
 
-**Original release:** 2007–2008  
-**Operating system:** Platform independent  
-**Requirements:** Java 8 or later, or a compatible Java Runtime Environment. CRT currently supports FASTA-formatted input files.
+The CRISPR Recognition Tool (CRT) is software for detecting clustered regularly interspaced palindromic repeats in single sequence FASTA files. This repository includes both the graphical user interface (GUI) version and the command-line interface (CLI) version.
 
-The CRISPR Recognition Tool (CRT) is software for detecting clustered regularly interspaced palindromic repeats in DNA sequences. This repository includes both the graphical user interface (GUI) version and the command-line interface (CLI) version.
+**Requirements:** Java 8 or later. If you don't already have Java installed, download it from [java.com/download](https://www.java.com/download) — if you plan to build from source, you'll need a JDK (Java Development Kit) instead, e.g. from [Adoptium's releases page](https://adoptium.net/temurin/releases/).
 
 ---
 
-## Graphical User Interface (GUI)
+## Graphical User Interface
 
 ### Run the GUI
 
- Double-click `CRT-GUI.jar`, located in the `dist` directory.
+Double-click `CRT-GUI.jar`.
 
 Or it can be run from the command line:
 
@@ -37,8 +35,6 @@ java -cp src CRTGUI
 ---
 
 ## Command Line Interface (CLI)
-
-The CLI version provides a more Unix-like command-line interface.
 
 ### Run the CLI
 
@@ -77,7 +73,7 @@ java -cp dist/CRT-CLI.jar CRTCLI -minNR 3 -minRL 21 data/ecoli.fna
 | `-minSL` | Minimum length of a CRISPR spacer/non-repeated region | `19` |
 | `-maxSL` | Maximum length of a CRISPR spacer/non-repeated region | `48` |
 | `-screen` | Print results to screen instead of a file; range `0–1` | `0` |
-| `-searchWL` | Length of search window used to discover CRISPRs; range `6–9` | 8 |
+| `-searchWL` | Length of search window used to discover CRISPRs; range `6–9` | `8` |
 
 ### Build and Run the CLI from Source
 
@@ -101,7 +97,7 @@ java -cp src CRTCLI data/ecoli.fna ecoli.out
 
 ---
 
-## Optional: Create a Unix Alias for the CLI
+### Optional: Create a Unix Alias for the CLI
 
 To avoid typing the full command each time, you can create an alias.
 
@@ -137,11 +133,9 @@ To make the alias permanent, add it to your shell configuration file, such as `.
 
 ## Contact
 
-Questions, bug reports, and suggestions are welcome.
+Questions, bug reports, and suggestions.
 
 Email: `bland.charles@gmail.com`
-
-The author is also interested in hearing about projects that use CRT.
 
 ---
 

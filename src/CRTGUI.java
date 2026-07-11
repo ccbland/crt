@@ -20,7 +20,7 @@ public class CRTGUI
 	       }
 	  );
 
-	  frame.setTitle("CRISPR Recognition Tool (CRT) V1.0");
+	  frame.setTitle("CRISPR Recognition Tool (CRT)");
 	  frame.setSize(850, 580);
       frame.show();
    }
