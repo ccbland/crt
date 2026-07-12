@@ -12,10 +12,6 @@ The CRISPR Recognition Tool (CRT) is software for detecting clustered regularly 
 
 Double-click `CRT-GUI.jar`.
 
-### Run the GUI
-
-Double-click `CRT-GUI.jar`.
-
 > The first time you double-click `CRT-GUI.jar`, your OS may warn about an unrecognized app or ask how to open it. Right-click the file, choose **Open** (or **Open with → Java**), and confirm. You'll only need to do this once — after that, double-clicking works normally.
 
 Or it can be run from the command line:
